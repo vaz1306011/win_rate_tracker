@@ -13,12 +13,13 @@ def winrate(data: dict) -> float:
 def main():
     with open("data.json", "r") as f:
         data = json.load(f)
+        lastTime = data["lastTime"]
 
     data = dict(filter(lambda d: d[0] != "lastTime", data.items()))
     x = data.keys()
     y = list(map(winrate, data.values()))
 
-    plt.title("winrate")
+    plt.title(f"winrate({lastTime})")
     plt.plot(x, y)
     plt.fill_between(x, y, color="skyblue", alpha=0.4)
     plt.ylim(0, 100)
