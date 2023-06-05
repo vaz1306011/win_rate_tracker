@@ -1,6 +1,8 @@
 import json
 
 import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.widgets import Cursor
 
 
 def winrate(data: dict) -> float:
@@ -24,7 +26,13 @@ def main():
     plt.fill_between(x, y, color="skyblue", alpha=0.4)
     plt.ylim(0, 100)
     plt.xlabel("time")
-    plt.axhline(50, color="red")
+
+    # 十字線
+    ax = plt.gca()
+    cursor = Cursor(ax, useblit=True, color="blue", linewidth=1)
+
+    plt.axhline(50, color="red")  # 50%線
+
     plt.show()
 
 
