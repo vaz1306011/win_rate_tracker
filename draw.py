@@ -1,7 +1,6 @@
 import json
 
 import matplotlib.pyplot as plt
-import numpy as np
 from matplotlib.widgets import Cursor
 
 
@@ -29,7 +28,7 @@ def main():
 
     # 十字線
     ax = plt.gca()
-    cursor = Cursor(ax, useblit=True, color="blue", linewidth=1)
+    _ = Cursor(ax, useblit=True, color="blue", linewidth=1)
 
     plt.axhline(50, color="red")  # 50%線
 
